@@ -29,17 +29,4 @@ jobs:
       env:
         COOKIE: ${{ secrets.COOKIE }}
         LANGUAGE: 'zh'
-      run: |
-        python -c "
-import genshinhelper as gh
-import os
-
-cookie = os.environ.get('COOKIE')
-if not cookie:
-    print('请设置 COOKIE 环境变量')
-    exit(1)
-
-g = gh.Genshin(cookie)
-result = g.sign()
-print(result)
-"
+      run: python genshinhelper/checkin.py
